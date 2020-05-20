@@ -1,0 +1,25 @@
+body {
+    margin: 0
+}
+
+.myContainer {
+    display: flex;
+    justify-content: start;
+}
+
+.sidenav {
+    height: 100vh;
+    width: 200px;
+    float: left;
+    position: relative;
+    background-color: blue;
+}
+
+.content {
+    height: 100vh;
+    width: calc(100% - 200px);
+    float: right;
+    position: relative;
+    background-color: red;
+    overflow-y: scroll;
+}

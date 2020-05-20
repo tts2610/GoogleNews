@@ -1,0 +1,32 @@
+body {
+    margin: 0
+}
+
+.myContainer {
+    display: flex;
+    justify-content: start;
+}
+
+.sidenav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: pink;
+}
+
+.content {
+    height: 100vh;
+    width: calc(100% - 200px);
+    float: right;
+    position: relative;
+    background-color: #f8f9fa;
+    /* overflow-y: scroll; */
+}
+
+.blog-entry-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

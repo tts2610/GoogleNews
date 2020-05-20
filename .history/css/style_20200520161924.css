@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.myContainer {
+    display: flex;
+    justify-content: start;
+}
+
+.sidenav {
+    min-height: 100vh;
+    width: 200px;
+    float: left;
+    position: relative;
+    background-color: blue;
+}
+
+.content {
+    height: 100vh;
+    width: calc(100% - 200px);
+    float: right;
+    position: relative;
+    background-color: #f8f9fa;
+    overflow-y: scroll;
+}
+
+.blog-entry-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    padding: 20px;
+    animation-duration: 2s;
+}
+
+button {
+    margin-left: 500px;
+}
