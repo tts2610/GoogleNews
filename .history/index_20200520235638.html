@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+    <script src="js/moment.js"></script>
+</head>
+
+<body>
+    <div class="myContainer">
+        <div class="sidenav">
+            <!-- <div class="card">
+                <article class="filter-group">
+                    <header class="card-header">
+                        <a href="#" data-toggle="collapse" data-target="#collapse_aside1" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Categories </h6>
+                        </a>
+                    </header>
+                    <div class="filter-content collapse" id="collapse_aside1" style="">
+                        <div class="card-body">
+                            <ul class="list-menu">
+                                <li><a href="#" data-abc="true">Electronics </a></li>
+                                <li><a href="#" data-abc="true">Watches </a></li>
+                                <li><a href="#" data-abc="true">Laptops </a></li>
+                                <li><a href="#" data-abc="true">Clothes </a></li>
+                                <li><a href="#" data-abc="true">Accessories </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+                <article class="filter-group">
+                    <header class="card-header">
+                        <a href="#" data-toggle="collapse" data-target="#collapse_aside2" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Price </h6>
+                        </a>
+                    </header>
+                    <div class="filter-content collapse" id="collapse_aside2" style="">
+                        <div class="card-body"> <input type="range" class="custom-range" min="0" max="100" name="">
+                            <div class="form-row">
+                                <div class="form-group col-md-6"> <label>Min</label> <input class="form-control" placeholder="$0" type="number"> </div>
+                                <div class="form-group text-right col-md-6"> <label>Max</label> <input class="form-control" placeholder="$1,0000" type="number"> </div>
+                            </div> <a href="#" class="highlight-button btn btn-medium button xs-margin-bottom-five" data-abc="true">Apply Now</a>
+                        </div>
+                    </div>
+                </article>
+                <article class="filter-group">
+                    <header class="card-header">
+                        <a href="#" data-toggle="collapse" data-target="#collapse_aside3" data-abc="true" aria-expanded="false" class="collapsed"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Size </h6>
+                        </a>
+                    </header>
+                    <div class="filter-content collapse" id="collapse_aside3" style="">
+                        <div class="card-body"> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> XS </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> SM </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> LG </span> </label>                            <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> XXL </span> </label> <label class="checkbox-btn"> <input type="checkbox"> <span class="btn btn-light"> XXXL </span> </label> </div>
+                    </div>
+                </article>
+                <article class="filter-group">
+                    <header class="card-header">
+                        <a href="#" data-toggle="collapse" data-target="#collapse_aside4" data-abc="true" class="collapsed" aria-expanded="false"> <i class="icon-control fa fa-chevron-down"></i>
+                            <h6 class="title">Rating </h6>
+                        </a>
+                    </header>
+                    <div class="filter-content collapse" id="collapse_aside4" style="">
+                        <div class="card-body"> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+                                <div class="custom-control-label">Better </div>
+                            </label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+                                <div class="custom-control-label">Best </div>
+                            </label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+                                <div class="custom-control-label">Good</div>
+                            </label> <label class="custom-control"> <input type="checkbox" checked="" class="custom-control-input">
+                                <div class="custom-control-label">Not good</div>
+                            </label> </div>
+                    </div>
+                </article>
+            </div> -->
+        </div>
+        <div class="content" id="myContent">
+
+            <!-- <div class="row">
+                <div class="news-img"><img src="img/image_8.jpg" width="200" height="200"></div>
+                <div class="blog-entry-left">
+                    <div class="text">
+                        <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
+                        <div class="meta-wrap">
+                            <p class="meta">
+                                <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
+                                <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
+                                <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
+                            </p>
+                        </div>
+                        <p class="mb-4">A small river named Duden flows by their place and supplies</p>
+                        <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                    </div>
+                </div>
+
+            </div> -->
+            <!-- <button type="button" id="loadMoreBtn" class="btn btn-success my-3" style="margin-left: 470px;">Load more...</button> -->
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+
+</html>

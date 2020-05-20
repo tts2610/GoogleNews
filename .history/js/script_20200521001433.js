@@ -11,11 +11,9 @@ const loadNews = async(page) => {
         sources.push($(this).val());
     });
     let url;
-    if (!sources.length) {
-        $("#currentNews").remove();
+    if (!sources.length)
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
-
-    } else {
+    else {
         $("#myContent").empty();
         let sourceStr = sources.join(",");
         url = `https://newsapi.org/v2/top-headlines?q=${q}&page=${page}&pageSize=${pageSize}&sources=${sourceStr}&apiKey=${apiKey}`
@@ -83,7 +81,7 @@ function addToDictionary(x) {
 function render(result) {
     let innerHtml = result.articles.map(x => {
         return `<div class="row">
-        <div class="news-img"><img class="rounded" src="${x.urlToImage}" width="200" height="200"></div>
+        <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
         <div class="blog-entry-left">
             <div class="text">
                 <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>

@@ -11,11 +11,9 @@ const loadNews = async(page) => {
         sources.push($(this).val());
     });
     let url;
-    if (!sources.length) {
-        $("#currentNews").remove();
+    if (!sources.length)
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
-
-    } else {
+    else {
         $("#myContent").empty();
         let sourceStr = sources.join(",");
         url = `https://newsapi.org/v2/top-headlines?q=${q}&page=${page}&pageSize=${pageSize}&sources=${sourceStr}&apiKey=${apiKey}`
@@ -33,7 +31,7 @@ const loadNews = async(page) => {
 
 $(document).ready(function() {
     countCategory();
-    loadNews(page);
+    // loadNews(page);
 
 });
 
@@ -58,12 +56,10 @@ function loadMoreFunction() {
 function reloadFilter() {
     $("#sideNav").empty();
     categoryList.forEach(element => {
-
-        let html = `<label class="form-check">
-        <input onchange="loadNews(1);" class="form-check-input" type="checkbox" id="${element.id}" value="${element.id}">
-        <span class="form-check-label">
-            ${element.category}(${element.count})
-        </span>`;
+        let html = `<div class="form-check">
+                        <input class="form-check-input" onchange="loadNews(1);" type="checkbox" id="${element.id}" value="${element.id}">
+                        <label class="form-check-label">${element.category}(${element.count})</label>
+                    </div>`;
         $("#sideNav").append(html);
     });
 }
@@ -81,25 +77,12 @@ function addToDictionary(x) {
 }
 
 function render(result) {
-    let innerHtml = result.articles.map(x => {
-        return `<div class="row">
-        <div class="news-img"><img class="rounded" src="${x.urlToImage}" width="200" height="200"></div>
-        <div class="blog-entry-left">
-            <div class="text">
-                <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
-                <div class="meta-wrap">
-                    <p class="meta">
-                        <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                        <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
-                        <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                    </p>
-                </div>
-                <p class="mb-4">${x.description}</p>
-                <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-            </div>
-        </div>
+    let firstNum = 0;
+    let midNum;
+    let midNum2;
+    let lastNum;
+    let innerHtml = result.map(element => {
 
-    </div>`
-    }).join('');
+    })
     return innerHtml;
 }

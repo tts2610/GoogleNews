@@ -11,11 +11,10 @@ const loadNews = async(page) => {
         sources.push($(this).val());
     });
     let url;
-    if (!sources.length) {
+    if (!sources.length)
         $("#currentNews").remove();
-        url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
-
-    } else {
+    url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+    else {
         $("#myContent").empty();
         let sourceStr = sources.join(",");
         url = `https://newsapi.org/v2/top-headlines?q=${q}&page=${page}&pageSize=${pageSize}&sources=${sourceStr}&apiKey=${apiKey}`

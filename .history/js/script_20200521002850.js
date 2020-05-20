@@ -12,7 +12,7 @@ const loadNews = async(page) => {
     });
     let url;
     if (!sources.length) {
-        $("#currentNews").remove();
+        loadNews(1);
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
 
     } else {

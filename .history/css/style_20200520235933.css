@@ -10,7 +10,7 @@ body {
 
 .sidenav {
     min-height: 100vh;
-    width: 250px;
+    width: 300px;
     float: left;
     position: relative;
 }
@@ -31,7 +31,6 @@ body {
 .blog-entry-left {
     text-align: left;
     padding: 10px;
-    width: 70%;
 }
 
 .blog-entry {

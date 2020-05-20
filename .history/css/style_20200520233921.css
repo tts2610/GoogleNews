@@ -10,9 +10,10 @@ body {
 
 .sidenav {
     min-height: 100vh;
-    width: 250px;
+    width: 200px;
     float: left;
     position: relative;
+    background-color: #FF6F61;
 }
 
 #sideNav {
@@ -31,7 +32,6 @@ body {
 .blog-entry-left {
     text-align: left;
     padding: 10px;
-    width: 70%;
 }
 
 .blog-entry {
@@ -40,6 +40,7 @@ body {
 
 .row {
     padding: 20px;
+    justify-content: center;
 }
 
 #container-row {
