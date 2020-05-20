@@ -3,8 +3,6 @@
 Created with love by: `Sean Mendes`
   
 View online at: `https://gracious-leakey-7a7b0a.netlify.appe`
-  
-One or two sentence summary of your project. 
 
 
 ## User Stories
