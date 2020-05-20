@@ -35,7 +35,6 @@ function showAll() {
     $("input:checkbox:checked").each(function() {
         $(this).prop("checked", false);
     });
-    loadNews(1);
 }
 
 $(document).ready(function() {

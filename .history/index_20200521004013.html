@@ -27,10 +27,18 @@
     <div class="myContainer">
         <div class="row">
             <div class="col-2 sidenav">
+                <div class="btn-group dropright">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Dropright
+                    </button>
+                    <div class="dropdown-menu">
+                        <!-- Dropdown menu links -->
+                    </div>
+                </div>
                 <div class="card">
                     <article class="card-group-item">
                         <header class="card-header">
-                            <h6 class="title">Sources<span style="float: right; cursor: pointer;" onclick="showAll(1)">Show all</span></h6>
+                            <h6 class="title">Sources<span style="float: right; cursor: pointer;" onclick="loadNew(1)">Show all</span></h6>
                         </header>
                         <div class="filter-content">
                             <div class="card-body">
@@ -52,24 +60,11 @@
 
                     <!-- card-group-item.// -->
                 </div>
-
-                <div class="filterCategory">
-                    <div class="btn-group dropright">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Dropright
-                        </button>
-                        <div class="dropdown-menu">
-                            <!-- Dropdown menu links -->
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col-10 content" id="myContent">
 
             </div>
         </div>
-
-
 
     </div>
 
