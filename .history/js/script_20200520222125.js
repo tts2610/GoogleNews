@@ -79,64 +79,38 @@ function render(result) {
     let innerHtml = '';
     let firstNum = 0;
     let midNum;
-    let midNum2;
     let lastNum;
     result.articles.forEach((x, i) => {
         if (i == firstNum) {
-            innerHtml += `<div class="row">
-            <div class="col-6">
-                <div class="row" id='container-row-left'>
-
-                    <div class="row">
-                        <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
-                        <div class="blog-entry-left">
-                            <div class="text">
-                                <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
-                                <div class="meta-wrap">
-                                    <p class="meta">
-                                        <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                                        <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
-                                        <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                                    </p>
-                                </div>
-                                <p class="mb-4">A small river named Duden flows by their place and supplies</p>
-                                <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-                            </div>
+            innerHtml += `<div class="row animate__animated animate__fadeInUp">
+            <div class="col-4">
+                <div class="blog-entry-left">
+                    <div>
+                        <img src="${x.urlToImage}" width="200" height="200">
+                    </div>
+                    <div class="text">
+                        <h3 class=""><a href="single.html">${x.title}</a></h3>
+                        <div class="meta-wrap">
+                            <p class="meta">
+                                <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
+                                <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                                <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
+                            </p>
                         </div>
-                    </div>`
+                        <p class="">${x.description}</p>
+                        <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                    </div>
+                </div>
+            </div>`
             midNum = i + 1;
-            firstNum = firstNum + 4;
+            firstNum = firstNum + 3;
         }
         if (i == midNum) {
-            innerHtml += `<div class="row">
-            <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
-            <div class="blog-entry-left">
-                <div class="text">
-                    <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
-                    <div class="meta-wrap">
-                        <p class="meta">
-                            <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
-                            <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                        </p>
-                    </div>
-                    <p class="mb-4">A small river named Duden flows by their place and supplies</p>
-                    <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>`
-            midNum2 = i + 1;
-        }
-        if (i == midNum2) {
-            innerHtml += `<div class="col-6">
-            <div class="row" id='container-row'>
-
-                <div class="row">
+            innerHtml += `<div class="col-8">
+            <div class="row">
+                <div class="col-md-12">
                     <div class="blog-entry">
-                        <div class="text">
+                        <div class="text text-2 text-md-right pr-4">
                             <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
                             <div class="meta-wrap">
                                 <p class="meta">
@@ -145,18 +119,18 @@ function render(result) {
                                     <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                                 </p>
                             </div>
-                            <p class="mb-4">A small river named Duden flows by their place and supplies</p>
+                            <p class="mb-4">${x.description}</p>
                             <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
                         </div>
+                        <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
                     </div>
-                    <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
                 </div>`
             lastNum = i + 1;
         }
         if (i == lastNum) {
-            innerHtml += `<div class="row">
-            <div class="blog-entry">
-                <div class="text">
+            innerHtml += `<div class="col-md-12">
+            <div class="blog-entry ftco-animate d-md-flex align-items-center">
+                <div class="text text-2 text-md-right pr-4">
                     <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
                     <div class="meta-wrap">
                         <p class="meta">
@@ -165,11 +139,11 @@ function render(result) {
                             <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                         </p>
                     </div>
-                    <p class="mb-4">A small river named Duden flows by their place and supplies</p>
+                    <p class="mb-4">${x.description}</p>
                     <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
                 </div>
+                <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
             </div>
-            <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
         </div>
     </div>
 </div>

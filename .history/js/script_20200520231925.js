@@ -95,7 +95,7 @@ function render(result) {
                                 <div class="meta-wrap">
                                     <p class="meta">
                                         <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                                        <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                                        <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                                         <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                                     </p>
                                 </div>
@@ -116,7 +116,7 @@ function render(result) {
                     <div class="meta-wrap">
                         <p class="meta">
                             <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                             <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                         </p>
                     </div>
@@ -141,7 +141,7 @@ function render(result) {
                             <div class="meta-wrap">
                                 <p class="meta">
                                     <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                                     <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                                 </p>
                             </div>
@@ -161,7 +161,7 @@ function render(result) {
                     <div class="meta-wrap">
                         <p class="meta">
                             <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                             <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                         </p>
                     </div>

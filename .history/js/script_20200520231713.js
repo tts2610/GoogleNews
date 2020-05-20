@@ -88,14 +88,14 @@ function render(result) {
                 <div class="row" id='container-row-left'>
 
                     <div class="row">
-                        <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
+                        <div class="news-img"><img src="img/image_8.jpg" width="200" height="200"></div>
                         <div class="blog-entry-left">
                             <div class="text">
                                 <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
                                 <div class="meta-wrap">
                                     <p class="meta">
-                                        <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                                        <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                                        <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
+                                        <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                                         <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                                     </p>
                                 </div>
@@ -109,14 +109,14 @@ function render(result) {
         }
         if (i == midNum) {
             innerHtml += `<div class="row">
-            <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
+            <div class="news-img"><img src="img/image_8.jpg" width="200" height="200"></div>
             <div class="blog-entry-left">
                 <div class="text">
-                    <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
+                    <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
                     <div class="meta-wrap">
                         <p class="meta">
-                            <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                            <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
+                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                             <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                         </p>
                     </div>
@@ -137,11 +137,11 @@ function render(result) {
                 <div class="row">
                     <div class="blog-entry">
                         <div class="text">
-                            <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
+                            <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
                             <div class="meta-wrap">
                                 <p class="meta">
-                                    <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                                    <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
+                                    <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                                     <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                                 </p>
                             </div>
@@ -149,7 +149,7 @@ function render(result) {
                             <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
                         </div>
                     </div>
-                    <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
+                    <div class="news-img"><img src="img/image_8.jpg" width="200" height="200"></div>
                 </div>`
             lastNum = i + 1;
         }
@@ -157,11 +157,11 @@ function render(result) {
             innerHtml += `<div class="row">
             <div class="blog-entry">
                 <div class="text">
-                    <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
+                    <h3 class="mb-2"><a href="single.html">A Loving Heart is the Truest Wisdom</a></h3>
                     <div class="meta-wrap">
                         <p class="meta">
-                            <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                            <span><i class="icon-calendar mr-2"></i>Sept. 10, 2019</span>
+                            <span><a href="single.html"><i class="icon-folder-o mr-2"></i>Travel</a></span>
                             <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                         </p>
                     </div>
@@ -169,7 +169,7 @@ function render(result) {
                     <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
                 </div>
             </div>
-            <div class="news-img"><img src="${x.urlToImage}" width="200" height="200"></div>
+            <div class="news-img"><img src="img/image_8.jpg" width="200" height="200"></div>
         </div>
     </div>
 </div>
