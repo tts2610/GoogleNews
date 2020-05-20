@@ -25,14 +25,6 @@
 
 <body>
     <div class="myContainer">
-        <div class="btn-group dropright" style="margin-left: -480px; margin-top: 45px;">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropright
-            </button>
-            <div class="dropdown-menu">
-                <!-- Dropdown menu links -->
-            </div>
-        </div>
         <div class="row">
             <div class="col-2 sidenav">
                 <div class="card">
@@ -56,10 +48,34 @@
                         </div>
                     </article>
                     <!-- card-group-item.// -->
+                    <article class="card-group-item">
+                        <header class="card-header">
+                            <h6 class="title">Sources<span style="float: right; cursor: pointer;" onclick="showAll(1)">Show all</span></h6>
+                        </header>
+
+
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropright
+                                  </button>
+
+
+                        <!-- card-body.// -->
+
+                    </article>
 
                     <!-- card-group-item.// -->
                 </div>
 
+                <div class="filterCategory">
+                    <div class="btn-group dropright">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropright
+                        </button>
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-10 content" id="myContent">
 
