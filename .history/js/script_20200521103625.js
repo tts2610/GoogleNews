@@ -96,7 +96,7 @@ function isAnyChecked() {
     });
     if (!flag) {
         $("#myContent").empty();
-        sourceList = [];
+        sourceList = null;
         loadNews(1, null);
     }
 

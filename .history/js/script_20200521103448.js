@@ -22,8 +22,10 @@ const loadNews = async(page, category) => {
     let data = await fetch(url);
     let result = await data.json();
     $("#myContent").append(render(result));
+    if (sources.length == 0) {
+        $('#myContent').append(`<button onclick="loadMoreFunction()" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
 
-    $('#myContent').append(`<button onclick="loadMoreFunction()" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
+    }
     // $('#myContent').append(`<button onclick="loadNews(${++sourcePage},null)" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
     $('#myContent').append(`<div id="currentNews" style="text-align:right;">Shown : ${$("#myContent .row").length} news</div>`);
 }
@@ -96,7 +98,7 @@ function isAnyChecked() {
     });
     if (!flag) {
         $("#myContent").empty();
-        sourceList = [];
+        // sourceList = null;
         loadNews(1, null);
     }
 

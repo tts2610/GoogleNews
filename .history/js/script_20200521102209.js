@@ -9,21 +9,30 @@ let q = "corona";
 let filteredNews = []
 
 const loadNews = async(page, category) => {
+    let sources = [];
 
     let url;
     if (category && categoryList.includes(category)) {
-        $("#myContent").empty();
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}&category=${category}`;
+        $("#myContent").empty();
     } else {
-        $("#currentNews").remove();
-        url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+        if (sources.length == 0) {
+            $("#currentNews").remove();
+            url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+        } else {
+            $("#myContent").empty();
+            let sourceStr = sources.join(",");
+            url = `https://newsapi.org/v2/top-headlines?q=${q}&page=${page}&pageSize=${pageSize}&sources=${sourceStr}&apiKey=${apiKey}`
+        }
     }
 
     let data = await fetch(url);
     let result = await data.json();
     $("#myContent").append(render(result));
+    if (sources.length == 0) {
+        $('#myContent').append(`<button onclick="loadMoreFunction()" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
 
-    $('#myContent').append(`<button onclick="loadMoreFunction()" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
+    }
     // $('#myContent').append(`<button onclick="loadNews(${++sourcePage},null)" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
     $('#myContent').append(`<div id="currentNews" style="text-align:right;">Shown : ${$("#myContent .row").length} news</div>`);
 }
@@ -61,6 +70,10 @@ function reloadFilter() {
 }
 
 function filterBySource(elem) {
+    if (!isAnyChecked()) {
+        $("#myContent").empty();
+    }
+
     let newFilters = filteredNews.filter(x => x.source.id == elem);
     let innerHtml = newFilters.map(x => {
         return `<div class="row">
@@ -82,11 +95,8 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    if (isAnyChecked()) {
-        $("#myContent").empty();
-        $("#myContent").append(innerHtml);
-    }
 
+    $("#myContent").append(innerHtml);
 }
 
 function isAnyChecked() {
@@ -95,9 +105,8 @@ function isAnyChecked() {
         flag = true;
     });
     if (!flag) {
+        showAll(1);
         $("#myContent").empty();
-        sourceList = [];
-        loadNews(1, null);
     }
 
     return flag;

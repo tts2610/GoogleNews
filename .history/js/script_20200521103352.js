@@ -15,6 +15,7 @@ const loadNews = async(page, category) => {
         $("#myContent").empty();
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}&category=${category}`;
     } else {
+        sourceList = null;
         $("#currentNews").remove();
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
     }
@@ -22,8 +23,10 @@ const loadNews = async(page, category) => {
     let data = await fetch(url);
     let result = await data.json();
     $("#myContent").append(render(result));
+    if (sources.length == 0) {
+        $('#myContent').append(`<button onclick="loadMoreFunction()" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
 
-    $('#myContent').append(`<button onclick="loadMoreFunction()" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
+    }
     // $('#myContent').append(`<button onclick="loadNews(${++sourcePage},null)" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
     $('#myContent').append(`<div id="currentNews" style="text-align:right;">Shown : ${$("#myContent .row").length} news</div>`);
 }
@@ -96,7 +99,6 @@ function isAnyChecked() {
     });
     if (!flag) {
         $("#myContent").empty();
-        sourceList = [];
         loadNews(1, null);
     }
 

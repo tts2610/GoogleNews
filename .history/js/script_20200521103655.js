@@ -96,11 +96,11 @@ function isAnyChecked() {
     });
     if (!flag) {
         $("#myContent").empty();
-        sourceList = [];
-        loadNews(1, null);
-    }
+        sourceList = []];
+    loadNews(1, null);
+}
 
-    return flag;
+return flag;
 
 }
 
