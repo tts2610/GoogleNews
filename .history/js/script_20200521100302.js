@@ -86,14 +86,14 @@ function filterBySource(elem) {
                     </p>
                 </div>
                 <p class="mb-4">${x.description}</p>
-                <p><a href="${x.url}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
             </div>
         </div>
 
     </div>`
     }).join('');
-    $("#myContent").empty();
-
+    if (!checkCheckBoxes())
+        $("#myContent").empty();
     $("#myContent").append(innerHtml);
 }
 
@@ -147,7 +147,7 @@ function render(result) {
                     </p>
                 </div>
                 <p class="mb-4">${x.description}</p>
-                <p><a href="${x.url}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
             </div>
         </div>
 

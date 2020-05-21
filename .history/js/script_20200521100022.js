@@ -70,7 +70,7 @@ function reloadFilter() {
 }
 
 function filterBySource(elem) {
-
+    checkCheckBoxes();
     let newFilters = filteredNews.filter(x => x.source.id == elem);
     let innerHtml = newFilters.map(x => {
         return `<div class="row">
@@ -86,14 +86,13 @@ function filterBySource(elem) {
                     </p>
                 </div>
                 <p class="mb-4">${x.description}</p>
-                <p><a href="${x.url}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
             </div>
         </div>
 
     </div>`
     }).join('');
     $("#myContent").empty();
-
     $("#myContent").append(innerHtml);
 }
 
@@ -106,8 +105,6 @@ function checkCheckBoxes() {
         showAll(1);
         $("#myContent").empty();
     }
-
-    return flag;
 
 }
 
@@ -147,7 +144,7 @@ function render(result) {
                     </p>
                 </div>
                 <p class="mb-4">${x.description}</p>
-                <p><a href="${x.url}" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
+                <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
             </div>
         </div>
 

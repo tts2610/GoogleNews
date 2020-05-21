@@ -92,7 +92,10 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    $("#myContent").empty();
+    if (!checkCheckBoxes()) {
+        $("#myContent").empty();
+        alert("aaaa");
+    }
 
     $("#myContent").append(innerHtml);
 }
