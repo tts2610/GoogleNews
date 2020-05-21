@@ -107,8 +107,7 @@ function isAnyChecked() {
         $('#filtering').remove();
     }
     if (flag) {
-        $("#myContent").append("<div id='filtering'></div>");
-        window.scrollTo(0, document.body.scrollHeight);
+        $("#myContent").append("<div id='filtering'></div>")
     }
 
     return flag;

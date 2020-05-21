@@ -31,9 +31,6 @@ function showAll() {
     $("input:checkbox:checked").each(function() {
         $(this).prop("checked", false);
     });
-    filteredNews = [];
-    sourceList = [];
-    page = 1;
     loadNews(1, null);
 }
 
@@ -107,8 +104,7 @@ function isAnyChecked() {
         $('#filtering').remove();
     }
     if (flag) {
-        $("#myContent").append("<div id='filtering'></div>");
-        window.scrollTo(0, document.body.scrollHeight);
+        $("#myContent").append("<div id='filtering'></div>")
     }
 
     return flag;
