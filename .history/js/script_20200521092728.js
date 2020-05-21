@@ -70,7 +70,6 @@ function reloadFilter() {
 }
 
 function filterBySource(elem) {
-    checkCheckBoxes();
     let newFilters = filteredNews.filter(x => x.source.id == elem);
     let innerHtml = newFilters.map(x => {
         return `<div class="row">
@@ -101,11 +100,8 @@ function checkCheckBoxes() {
     $("input:checkbox:checked").each(function() {
         flag = true;
     });
-    if (!flag) {
-        showAll(1);
-        $("#myContent").empty();
-    }
-
+    if (!flag)
+        showAll(1)
 }
 
 function renderDropDown() {

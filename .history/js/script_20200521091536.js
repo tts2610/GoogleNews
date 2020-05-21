@@ -6,11 +6,13 @@ let sourceList = [];
 let sourcePage = 0;
 let categoryList = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology']
 let q = "corona";
-let filteredNews = []
+let filteredNews = new Set();
 
 const loadNews = async(page, category) => {
     let sources = [];
-
+    $("input:checkbox:checked").each(function() {
+        sources.push($(this).val());
+    });
     let url;
     if (category && categoryList.includes(category)) {
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}&category=${category}`;
@@ -61,7 +63,7 @@ function reloadFilter() {
     $("#sideNav").empty();
     sourceList.forEach(element => {
         let html = `<label class="form-check">
-        <input onchange="filterBySource('${element.id}')" class="form-check-input" type="checkbox" id="${element.id}" value="${element.id}">
+        <input onchange="filterBySource(${element.id})" class="form-check-input" type="checkbox" id="${element.id}" value="${element.id}">
         <span class="form-check-label">
             ${element.category}(${element.count})
         </span>`;
@@ -69,10 +71,11 @@ function reloadFilter() {
     });
 }
 
-function filterBySource(elem) {
-    checkCheckBoxes();
-    let newFilters = filteredNews.filter(x => x.source.id == elem);
-    let innerHtml = newFilters.map(x => {
+function filterBySource(x) {
+    let filteredId = null;
+    filteredNews.filter(x => x.source = x);
+
+    let innerHtml = filteredNews.map(x => {
         return `<div class="row">
         <div class="news-img"><img class="rounded" src="${x.urlToImage}" width="200" height="200"></div>
         <div class="blog-entry-left">
@@ -92,20 +95,6 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    $("#myContent").empty();
-    $("#myContent").append(innerHtml);
-}
-
-function checkCheckBoxes() {
-    let flag = false;
-    $("input:checkbox:checked").each(function() {
-        flag = true;
-    });
-    if (!flag) {
-        showAll(1);
-        $("#myContent").empty();
-    }
-
 }
 
 function renderDropDown() {
@@ -130,7 +119,7 @@ function addToDictionary(x) {
 function render(result) {
     let innerHtml = result.articles.map(x => {
         addToDictionary(x.source);
-        filteredNews.push({ urlToImage: x.urlToImage, title: x.title, publishedAt: x.publishedAt, source: x.source, description: x.description })
+        filteredNews += { image: x.urlToImage, title: x.title, publishedAt: x.publishedAt, source: x.source.id, des: x.description }
         return `<div class="row">
         <div class="news-img"><img class="rounded" src="${x.urlToImage}" width="200" height="200"></div>
         <div class="blog-entry-left">

@@ -10,7 +10,9 @@ let filteredNews = []
 
 const loadNews = async(page, category) => {
     let sources = [];
-
+    $("input:checkbox:checked").each(function() {
+        sources.push($(this).val());
+    });
     let url;
     if (category && categoryList.includes(category)) {
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}&category=${category}`;
@@ -70,9 +72,9 @@ function reloadFilter() {
 }
 
 function filterBySource(elem) {
-    checkCheckBoxes();
-    let newFilters = filteredNews.filter(x => x.source.id == elem);
-    let innerHtml = newFilters.map(x => {
+    filteredNews.filter(x => x.source.id = elem);
+    console.log(filteredNews);
+    let innerHtml = filteredNews.map(x => {
         return `<div class="row">
         <div class="news-img"><img class="rounded" src="${x.urlToImage}" width="200" height="200"></div>
         <div class="blog-entry-left">
@@ -94,18 +96,6 @@ function filterBySource(elem) {
     }).join('');
     $("#myContent").empty();
     $("#myContent").append(innerHtml);
-}
-
-function checkCheckBoxes() {
-    let flag = false;
-    $("input:checkbox:checked").each(function() {
-        flag = true;
-    });
-    if (!flag) {
-        showAll(1);
-        $("#myContent").empty();
-    }
-
 }
 
 function renderDropDown() {

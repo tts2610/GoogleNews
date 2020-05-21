@@ -5,25 +5,26 @@ let pageSize = 6;
 let sourceList = [];
 let sourcePage = 0;
 let categoryList = ['business', 'entertainment', 'general', 'health', 'science', 'sports', 'technology']
-let q = "corona";
-let filteredNews = []
+let q = "vietnam";
 
 const loadNews = async(page, category) => {
     let sources = [];
-
+    $("input:checkbox:checked").each(function() {
+        sources.push($(this).val());
+    });
     let url;
     if (category && categoryList.includes(category)) {
         url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}&category=${category}`;
         $("#myContent").empty();
     } else {
-        if (sources.length == 0) {
-            $("#currentNews").remove();
-            url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
-        } else {
-            $("#myContent").empty();
-            let sourceStr = sources.join(",");
-            url = `https://newsapi.org/v2/top-headlines?q=${q}&page=${page}&pageSize=${pageSize}&sources=${sourceStr}&apiKey=${apiKey}`
-        }
+        $("#currentNews").remove();
+        url = `https://newsapi.org/v2/top-headlines?q=${q}&apiKey=${apiKey}&page=${page}&pageSize=${pageSize}`;
+
+        // } else {
+        //     $("#myContent").empty();
+        //     let sourceStr = sources.join(",");
+        //     url = `https://newsapi.org/v2/top-headlines?q=${q}&page=${page}&pageSize=${pageSize}&sources=${sourceStr}&apiKey=${apiKey}`
+        // }
     }
 
     let data = await fetch(url);
@@ -32,9 +33,11 @@ const loadNews = async(page, category) => {
     if (sources.length == 0) {
         $('#myContent').append(`<button onclick="loadMoreFunction()" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
 
-    }
-    // $('#myContent').append(`<button onclick="loadNews(${++sourcePage},null)" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
+    } else
+        $('#myContent').append(`<button onclick="loadNews(${++sourcePage},null)" id="loadMoreBtn" type="button" class="btn btn-success my-4">Load more</button>`);
     $('#myContent').append(`<div id="currentNews" style="text-align:right;">Shown : ${$("#myContent .row").length} news</div>`);
+
+    sources = null;
 }
 
 function showAll() {
@@ -47,6 +50,7 @@ function showAll() {
 $(document).ready(function() {
     renderDropDown();
     loadNews(page, null);
+
 });
 
 
@@ -60,52 +64,14 @@ function loadMoreFunction() {
 function reloadFilter() {
     $("#sideNav").empty();
     sourceList.forEach(element => {
+
         let html = `<label class="form-check">
-        <input onchange="filterBySource('${element.id}')" class="form-check-input" type="checkbox" id="${element.id}" value="${element.id}">
+        <input onchange="" class="form-check-input" type="checkbox" id="${element.id}" value="${element.id}">
         <span class="form-check-label">
             ${element.category}(${element.count})
         </span>`;
         $("#sideNav").append(html);
     });
-}
-
-function filterBySource(elem) {
-    checkCheckBoxes();
-    let newFilters = filteredNews.filter(x => x.source.id == elem);
-    let innerHtml = newFilters.map(x => {
-        return `<div class="row">
-        <div class="news-img"><img class="rounded" src="${x.urlToImage}" width="200" height="200"></div>
-        <div class="blog-entry-left">
-            <div class="text">
-                <h3 class="mb-2"><a href="single.html">${x.title}</a></h3>
-                <div class="meta-wrap">
-                    <p class="meta">
-                        <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                        <span><a href="single.html" id="${x.source.id}"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
-                        <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
-                    </p>
-                </div>
-                <p class="mb-4">${x.description}</p>
-                <p><a href="#" class="btn-custom">Read More <span class="ion-ios-arrow-forward"></span></a></p>
-            </div>
-        </div>
-
-    </div>`
-    }).join('');
-    $("#myContent").empty();
-    $("#myContent").append(innerHtml);
-}
-
-function checkCheckBoxes() {
-    let flag = false;
-    $("input:checkbox:checked").each(function() {
-        flag = true;
-    });
-    if (!flag) {
-        showAll(1);
-        $("#myContent").empty();
-    }
-
 }
 
 function renderDropDown() {
@@ -130,7 +96,6 @@ function addToDictionary(x) {
 function render(result) {
     let innerHtml = result.articles.map(x => {
         addToDictionary(x.source);
-        filteredNews.push({ urlToImage: x.urlToImage, title: x.title, publishedAt: x.publishedAt, source: x.source, description: x.description })
         return `<div class="row">
         <div class="news-img"><img class="rounded" src="${x.urlToImage}" width="200" height="200"></div>
         <div class="blog-entry-left">
@@ -139,7 +104,7 @@ function render(result) {
                 <div class="meta-wrap">
                     <p class="meta">
                         <span><i class="icon-calendar mr-2"></i>${moment(x.publishedAt).fromNow()}</span>
-                        <span><a href="single.html" id="${x.source.id}"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
+                        <span><a href="single.html"><i class="icon-folder-o mr-2"></i>${x.source.name}</a></span>
                         <span><i class="icon-comment2 mr-2"></i>5 Comment</span>
                     </p>
                 </div>
