@@ -80,11 +80,10 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    if (!$("#myContent").find("#filtering").length)
-        $("#myContent").empty();
+    $("#myContent").empty();
+    $("#myContent").append(innerHtml);
     if (isAnyChecked()) {
 
-        $("#myContent").append(innerHtml);
     }
 
 }
@@ -96,14 +95,9 @@ function isAnyChecked() {
     });
     if (!flag) {
         $("#myContent").empty();
-        filteredNews = [];
         sourceList = [];
         page = 1;
         loadNews(1, null);
-        $('#filtering').remove();
-    }
-    if (flag) {
-        $("#myContent").append("<div id='filtering'></div>")
     }
 
     return flag;

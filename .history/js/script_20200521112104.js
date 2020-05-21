@@ -80,12 +80,12 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    if (!$("#myContent").find("#filtering").length)
-        $("#myContent").empty();
-    if (isAnyChecked()) {
+    $("#myContent").empty();
 
-        $("#myContent").append(innerHtml);
+    if ($("#myContent").find("#filtering").length) {
+        alert("cc");
     }
+    $("#myContent").append(innerHtml);
 
 }
 
@@ -103,7 +103,7 @@ function isAnyChecked() {
         $('#filtering').remove();
     }
     if (flag) {
-        $("#myContent").append("<div id='filtering'></div>")
+        $("#myContent").append("<div id='filtering'>TTS</div>")
     }
 
     return flag;

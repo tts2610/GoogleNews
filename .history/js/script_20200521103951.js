@@ -9,6 +9,7 @@ let q = "corona";
 let filteredNews = []
 
 const loadNews = async(page, category) => {
+
     let url;
     if (category && categoryList.includes(category)) {
         $("#myContent").empty();
@@ -39,11 +40,11 @@ $(document).ready(function() {
 });
 
 
-function loadMoreFunction(category) {
+function loadMoreFunction() {
     page++;
     $("#loadMoreBtn").remove();
     $("#currentNews").remove();
-    loadNews(page, category);
+    loadNews(page, null);
 }
 
 function reloadFilter() {
@@ -80,10 +81,8 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    if (!$("#myContent").find("#filtering").length)
-        $("#myContent").empty();
     if (isAnyChecked()) {
-
+        $("#myContent").empty();
         $("#myContent").append(innerHtml);
     }
 
@@ -96,14 +95,8 @@ function isAnyChecked() {
     });
     if (!flag) {
         $("#myContent").empty();
-        filteredNews = [];
         sourceList = [];
-        page = 1;
         loadNews(1, null);
-        $('#filtering').remove();
-    }
-    if (flag) {
-        $("#myContent").append("<div id='filtering'></div>")
     }
 
     return flag;

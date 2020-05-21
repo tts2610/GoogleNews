@@ -80,10 +80,8 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    if (!$("#myContent").find("#filtering").length)
-        $("#myContent").empty();
+    $("#myContent").empty();
     if (isAnyChecked()) {
-
         $("#myContent").append(innerHtml);
     }
 
@@ -92,18 +90,15 @@ function filterBySource(elem) {
 function isAnyChecked() {
     let flag = false;
     $("input:checkbox:checked").each(function() {
+        $("#myContent").empty();
         flag = true;
     });
     if (!flag) {
         $("#myContent").empty();
-        filteredNews = [];
+        alert("aaaa");
         sourceList = [];
         page = 1;
         loadNews(1, null);
-        $('#filtering').remove();
-    }
-    if (flag) {
-        $("#myContent").append("<div id='filtering'></div>")
     }
 
     return flag;

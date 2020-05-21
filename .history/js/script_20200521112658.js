@@ -80,12 +80,11 @@ function filterBySource(elem) {
 
     </div>`
     }).join('');
-    if (!$("#myContent").find("#filtering").length)
-        $("#myContent").empty();
-    if (isAnyChecked()) {
+    $("#myContent").empty();
 
-        $("#myContent").append(innerHtml);
-    }
+
+    $("#myContent").append(innerHtml);
+
 
 }
 
